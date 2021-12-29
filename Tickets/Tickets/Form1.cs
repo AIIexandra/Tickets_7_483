@@ -16,5 +16,17 @@ namespace Tickets
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //User user = new User("test", "test", 3);
+            //Address address = new Address("test", "test", 3, "test");
+
+            //Category category = new Category("концерт");
+            //category = new Category("кино");
+            //category = new Category("выставка");
+
+
+        }
     }
 }
