@@ -10,18 +10,29 @@ namespace Tickets
     {
         int id;
         int idEvent;
-        int price;
+        double price;
         DateTime datePurchase;
         TimeSpan timePurchase;
         int idCustomer;
         bool returned;
 
+        Tickets_7_483DataSet.TicketsRow ticketsRow;
+        Tickets_7_483DataSet.TicketsDataTable ticketsTable;
+        Tickets_7_483DataSetTableAdapters.TicketsTableAdapter ticketsTableAdapter = new Tickets_7_483DataSetTableAdapters.TicketsTableAdapter();
+
         public Ticket(int id)
         {
-            //получение
+            GetRow(id);
+
+            this.id = id;
+            this.price = ticketsRow.Price;
+            this.datePurchase = ticketsRow.DatePurchase;
+            this.timePurchase = ticketsRow.TimePurchase;
+            this.idCustomer = ticketsRow.IDCustomer;
+            this.returned = ticketsRow.Returned;
         }
 
-        public Ticket(int idEvent, int price, DateTime datePurchase, TimeSpan timePurchase, int idCustomer, bool returned)
+        public Ticket(int idEvent, double price, DateTime datePurchase, TimeSpan timePurchase, int idCustomer, bool returned)
         {
             this.idEvent = idEvent;
             this.price = price;
@@ -30,15 +41,14 @@ namespace Tickets
             this.idCustomer = idCustomer;
             this.returned = returned;
 
-            Tickets_7_483DataSetTableAdapters.TicketsTableAdapter ticketsTableAdapter = new Tickets_7_483DataSetTableAdapters.TicketsTableAdapter();
-            ticketsTableAdapter.Insert(idEvent, price, datePurchase, timePurchase, idCustomer, returned);
+            this.id = (int)ticketsTableAdapter.InsertQuery(idEvent, price, datePurchase.ToString(), timePurchase.ToString(), idCustomer, returned);
         }
 
         public int GetID() { return this.id; }
 
         public int GetIDEvent() { return this.idEvent; }
 
-        public int GetPrice() { return this.price; }
+        public double GetPrice() { return this.price; }
 
         public DateTime GetDatePurchase() { return this.datePurchase; }
 
@@ -48,5 +58,11 @@ namespace Tickets
 
         public bool GetReturned() { return this.returned; }
 
+
+        private void GetRow(int id)
+        {
+            ticketsTable = ticketsTableAdapter.GetData();
+            ticketsRow = ticketsTable.Where(x => x.ID == id).First();
+        }
     }
 }

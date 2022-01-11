@@ -11,9 +11,16 @@ namespace Tickets
         int id;
         string nameOrg;
 
+        Tickets_7_483DataSet.VendorsRow vendorsRow;
+        Tickets_7_483DataSet.VendorsDataTable vendorsTable;
+        Tickets_7_483DataSetTableAdapters.VendorsTableAdapter vendorsTableAdapter = new Tickets_7_483DataSetTableAdapters.VendorsTableAdapter();
+
         public Vendor(int id)
         {
-            //получение
+            GetRow(id);
+
+            this.id = id;
+            this.nameOrg = vendorsRow.NameOrg;
         }
 
         public Vendor(int id, string nameOrg)
@@ -21,23 +28,27 @@ namespace Tickets
             this.id = id;
             this.nameOrg = nameOrg;
 
-            Tickets_7_483DataSetTableAdapters.VendorsTableAdapter vendorsTableAdapter = new Tickets_7_483DataSetTableAdapters.VendorsTableAdapter();
             vendorsTableAdapter.Insert(id, nameOrg);
+            GetRow(id);
         }
 
-        public int GeiID()
+        public int GeiID() { return this.id; }
+
+        public string GetNameOrg() { return this.nameOrg; }
+
+        public void SetNameOrg(string nameOrg) { this.nameOrg = nameOrg; Update(); }
+
+
+        private void Update()
         {
-            return this.id;
+            vendorsRow.NameOrg = this.nameOrg;
+            vendorsTableAdapter.Update(vendorsRow);
         }
 
-        public string GetNameOrg()
+        private void GetRow(int id)
         {
-            return this.nameOrg;
-        }
-
-        public void SetNameOrg(string nameOrg)
-        {
-            this.nameOrg = nameOrg;
+            vendorsTable = vendorsTableAdapter.GetData();
+            vendorsRow = vendorsTable.Where(x => x.ID == id).First();
         }
     }
 }

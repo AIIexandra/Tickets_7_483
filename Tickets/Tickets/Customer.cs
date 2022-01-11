@@ -13,9 +13,18 @@ namespace Tickets
         string name;
         string surname;
 
+        Tickets_7_483DataSet.CustomersRow customersRow;
+        Tickets_7_483DataSet.CustomersDataTable customersTable;
+        Tickets_7_483DataSetTableAdapters.CustomersTableAdapter customersTableAdapter = new Tickets_7_483DataSetTableAdapters.CustomersTableAdapter();
+
         public Customer(int id)
         {
-            //получение
+            GetRow(id);
+
+            this.id = id;
+            this.email = customersRow.Email;
+            this.name = customersRow.Name;
+            this.surname = customersRow.Surname;
         }
 
         public Customer(int id, string email, string name, string surname)
@@ -25,43 +34,38 @@ namespace Tickets
             this.name = name;
             this.surname = surname;
 
-            Tickets_7_483DataSetTableAdapters.CustomersTableAdapter customersTableAdapter = new Tickets_7_483DataSetTableAdapters.CustomersTableAdapter();
             customersTableAdapter.Insert(id, email, name, surname);
+            GetRow(id);
         }
 
-        public int GetID()
+        public int GetID() { return this.id; }
+
+        public string GetEmail() { return this.email; }
+
+        public string GetName() { return this.name; }
+
+        public string GetSurname() { return this.surname; }
+
+
+        public void SetEmail(string email) { this.email = email; Update();  }
+
+        public void SetName(string name) { this.name = name; Update(); }
+
+        public void SetSurname(string surname) { this.surname = surname; Update(); }
+
+
+        private void Update()
         {
-            return this.id;
+            customersRow.Email = this.email;
+            customersRow.Name = this.name;
+            customersRow.Surname = this.surname;
+            customersTableAdapter.Update(customersRow);
         }
 
-        public string GetEmail()
+        private void GetRow(int id)
         {
-            return this.email;
-        }
-
-        public void SetEmail(string email)
-        {
-            this.email = email;
-        }
-
-        public string GetName()
-        {
-            return this.name;
-        }
-
-        public void SetName(string name)
-        {
-            this.name = name;
-        }
-
-        public string GetSurname()
-        {
-            return this.surname;
-        }
-
-        public void SetSurname(string surname)
-        {
-            this.surname = surname;
+            customersTable = customersTableAdapter.GetData();
+            customersRow = customersTable.Where(x => x.ID == id).First();
         }
     }
 }

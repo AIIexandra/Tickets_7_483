@@ -13,9 +13,18 @@ namespace Tickets
         string password;
         int idRole;
 
+        Tickets_7_483DataSet.UsersRow usersRow;
+        Tickets_7_483DataSet.UsersDataTable usersTable;
+        Tickets_7_483DataSetTableAdapters.UsersTableAdapter usersTableAdapter = new Tickets_7_483DataSetTableAdapters.UsersTableAdapter();
+
         public User(int id)
         {
-            //получение
+            GetRow(id);
+
+            this.id = id;
+            this.login = usersRow.Login;
+            this.password = usersRow.Password;
+            this.idRole = usersRow.IDRole;
         }
 
         public User(string login, string password, int idRole)
@@ -24,46 +33,35 @@ namespace Tickets
             this.password = password;
             this.idRole = idRole;
 
-            Tickets_7_483DataSetTableAdapters.UsersTableAdapter usersTableAdapter = new Tickets_7_483DataSetTableAdapters.UsersTableAdapter();
-            usersTableAdapter.Insert(login, password, idRole);
+            this.id = (int)usersTableAdapter.InsertQuery(login, password, idRole);
+            GetRow(this.id);
         }
 
-        public int GetID()
+        public int GetID() { return this.id; }
+
+        public string GetLogin() { return this.login; }
+
+        public string GetPassword() { return this.password; }
+
+        public int GetIDRole() { return idRole; }
+
+
+        public void SetLogin(string login) { this.login = login; Update(); }
+
+        public void SetPassword(string password) { this.password = password; Update(); }
+
+
+        private void Update()
         {
-            return this.id;
+            usersRow.Login = this.login;
+            usersRow.Password = this.password;
+            usersTableAdapter.Update(usersRow);
         }
 
-        public string GetLogin()
+        private void GetRow(int id)
         {
-            return this.login;
+            usersTable = usersTableAdapter.GetData();
+            usersRow = usersTable.Where(x => x.ID == id).First();
         }
-
-        public void SetLogin(string login)
-        {
-            this.login = login;
-
-            //Tickets_7_483DataSetTableAdapters.UsersTableAdapter usersTableAdapter = new Tickets_7_483DataSetTableAdapters.UsersTableAdapter();
-            //usersTableAdapter.Update()
-        }
-
-        public string GetPassword()
-        {
-            return this.password;
-        }
-
-        public void SetPassword(string password)
-        {
-            this.password = password;
-        }
-
-        public int GetIDRole()
-        {
-            return idRole;
-        }
-
-        //public string GetRole()
-        //{
-        //    return "";
-        //}
     }
 }
