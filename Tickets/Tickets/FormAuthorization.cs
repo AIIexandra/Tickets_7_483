@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Tickets
 {
-    public partial class Authorization : Form
+    public partial class FormAuthorization : Form
     {
-        public Authorization()
+        public FormAuthorization()
         {
             InitializeComponent();
         }
@@ -44,6 +44,19 @@ namespace Tickets
                 case 2: MessageBox.Show("Продавец"); break;
                 case 3: MessageBox.Show("Покупатель"); break;
             }
+        }
+
+        private void buttonRegistration_Click(object sender, EventArgs e)
+        {
+            FormRegistration fr = new FormRegistration();
+            this.Hide();
+            fr.ShowDialog();
+            this.Show();
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

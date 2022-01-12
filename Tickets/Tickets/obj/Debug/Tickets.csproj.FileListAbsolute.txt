@@ -7,5 +7,5 @@ G:\Прочее\Колледж\4 курс\Tickets_7_483\Tickets\Tickets\obj\Debu
 G:\Прочее\Колледж\4 курс\Tickets_7_483\Tickets\Tickets\obj\Debug\Tickets.csproj.CoreCompileInputs.cache
 G:\Прочее\Колледж\4 курс\Tickets_7_483\Tickets\Tickets\obj\Debug\Tickets.exe
 G:\Прочее\Колледж\4 курс\Tickets_7_483\Tickets\Tickets\obj\Debug\Tickets.pdb
-G:\Прочее\Колледж\4 курс\Tickets_7_483\Tickets\Tickets\obj\Debug\Tickets.Registration.resources
-G:\Прочее\Колледж\4 курс\Tickets_7_483\Tickets\Tickets\obj\Debug\Tickets.Authorization.resources
+G:\Прочее\Колледж\4 курс\Tickets_7_483\Tickets\Tickets\obj\Debug\Tickets.FormAuthorization.resources
+G:\Прочее\Колледж\4 курс\Tickets_7_483\Tickets\Tickets\obj\Debug\Tickets.FormRegistration.resources

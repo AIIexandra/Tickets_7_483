@@ -1,7 +1,7 @@
 ﻿
 namespace Tickets
 {
-    partial class Authorization
+    partial class FormAuthorization
     {
         /// <summary>
         /// Required designer variable.
@@ -56,6 +56,7 @@ namespace Tickets
             this.textBoxPas.Name = "textBoxPas";
             this.textBoxPas.Size = new System.Drawing.Size(305, 23);
             this.textBoxPas.TabIndex = 9;
+            this.textBoxPas.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -92,6 +93,7 @@ namespace Tickets
             this.buttonExit.TabIndex = 10;
             this.buttonExit.Text = "Выход";
             this.buttonExit.UseVisualStyleBackColor = false;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // buttonRegistration
             // 
@@ -103,6 +105,7 @@ namespace Tickets
             this.buttonRegistration.TabIndex = 11;
             this.buttonRegistration.Text = "Регистрация";
             this.buttonRegistration.UseVisualStyleBackColor = false;
+            this.buttonRegistration.Click += new System.EventHandler(this.buttonRegistration_Click);
             // 
             // buttonAuthorization
             // 
@@ -116,7 +119,7 @@ namespace Tickets
             this.buttonAuthorization.UseVisualStyleBackColor = false;
             this.buttonAuthorization.Click += new System.EventHandler(this.buttonAuthorization_Click);
             // 
-            // Authorization
+            // FormAuthorization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -132,7 +135,7 @@ namespace Tickets
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Authorization";
+            this.Name = "FormAuthorization";
             this.Text = "Authorization";
             this.ResumeLayout(false);
             this.PerformLayout();

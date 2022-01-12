@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Tickets
 {
-    public partial class Registration : Form
+    public partial class FormRegistration : Form
     {
-        public Registration()
+        public FormRegistration()
         {
             InitializeComponent();
         }
@@ -40,6 +40,13 @@ namespace Tickets
                 User user = new User(log, pas, 2);
                 Vendor vendor = new Vendor(user.GetID(), nameOrg);
             }
+
+            MessageBox.Show("Регистрация прошла успешно");
+            textBoxLog.Text = "";
+            textBoxPas.Text = "";
+            textBoxName.Text = "";
+            textBoxSurname.Text = "";
+            textBoxEmail.Text = "";
         }
 
         private void radioButtonCustomer_CheckedChanged(object sender, EventArgs e)
@@ -58,6 +65,11 @@ namespace Tickets
             labelSurname.Visible = false;
             textBoxEmail.Visible = false;
             labelEmail.Visible = false;
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

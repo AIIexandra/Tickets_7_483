@@ -1,7 +1,7 @@
 ﻿
 namespace Tickets
 {
-    partial class Registration
+    partial class FormRegistration
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -159,6 +159,7 @@ namespace Tickets
             this.textBoxPas.Name = "textBoxPas";
             this.textBoxPas.Size = new System.Drawing.Size(305, 23);
             this.textBoxPas.TabIndex = 16;
+            this.textBoxPas.UseSystemPasswordChar = true;
             // 
             // labelPass
             // 
@@ -195,8 +196,9 @@ namespace Tickets
             this.buttonExit.TabIndex = 23;
             this.buttonExit.Text = "Выход";
             this.buttonExit.UseVisualStyleBackColor = false;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
-            // Registration
+            // FormRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -218,7 +220,7 @@ namespace Tickets
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Registration";
+            this.Name = "FormRegistration";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Регистрация";
             this.groupBoxWho.ResumeLayout(false);
