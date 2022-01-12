@@ -2,9 +2,10 @@ G:\Прочее\Колледж\4 курс\Tickets_7_483\Tickets\Tickets\bin\Debu
 G:\Прочее\Колледж\4 курс\Tickets_7_483\Tickets\Tickets\bin\Debug\Tickets.exe
 G:\Прочее\Колледж\4 курс\Tickets_7_483\Tickets\Tickets\bin\Debug\Tickets.pdb
 G:\Прочее\Колледж\4 курс\Tickets_7_483\Tickets\Tickets\obj\Debug\Tickets.csprojAssemblyReference.cache
-G:\Прочее\Колледж\4 курс\Tickets_7_483\Tickets\Tickets\obj\Debug\Tickets.Form1.resources
 G:\Прочее\Колледж\4 курс\Tickets_7_483\Tickets\Tickets\obj\Debug\Tickets.Properties.Resources.resources
 G:\Прочее\Колледж\4 курс\Tickets_7_483\Tickets\Tickets\obj\Debug\Tickets.csproj.GenerateResource.cache
 G:\Прочее\Колледж\4 курс\Tickets_7_483\Tickets\Tickets\obj\Debug\Tickets.csproj.CoreCompileInputs.cache
 G:\Прочее\Колледж\4 курс\Tickets_7_483\Tickets\Tickets\obj\Debug\Tickets.exe
 G:\Прочее\Колледж\4 курс\Tickets_7_483\Tickets\Tickets\obj\Debug\Tickets.pdb
+G:\Прочее\Колледж\4 курс\Tickets_7_483\Tickets\Tickets\obj\Debug\Tickets.Registration.resources
+G:\Прочее\Колледж\4 курс\Tickets_7_483\Tickets\Tickets\obj\Debug\Tickets.Authorization.resources
